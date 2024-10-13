@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Arrays/Objects</title>
+
+</head>
+
+<body>
+
+    <table border="1" style="border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody id="products"></tbody>
+    </table>
+
+    <script>
+        var tableRow = "";
+        var products = [
+            { id: 1, description: "DVD 1", price: 100, image: "dvd1" },
+            { id: 2, description: "DVD 2", price: 200, image: "dvd2" },
+            { id: 3, description: "DVD 3", price: 300, image: "dvd3" },
+            { id: 4, description: "DVD 4", price: 400, image: "dvd4" },
+            { id: 5, description: "DVD 5", price: 500, image: "dvd5" }
+        ];
+
+        for (var i = 0; i < products.length; i++) {
+            tableRow += "<tr><td>" + products[i].id + "</td>" +
+                "<td>" + products[i].description + "</td>" +
+                "<td>" + products[i].price + "</td>" +
+                "<td><img src='images/" + products[i].image + 
+                    ".jpeg' alt=\"" + products[i].description + 
+                    " \" width='50px'></td>" +
+                "</tr>";
+        }
+
+        document.getElementById("products").innerHTML = tableRow;
+    </script>
+
+</body>
+
+</html>

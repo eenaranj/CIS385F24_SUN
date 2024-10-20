@@ -7,22 +7,38 @@
     <title>JS Objects</title>
 
     <script>
+
         window.onload = function () {
-            console.log("Page loaded!");
+
+            loadData();
+        };
+
+        function loadData(){
             // Create an array of objects
-            
+            var people = [
+                { id: 1, fname: "John", lname: "Smith", age: 35 }, // [0]
+                { id: 2, fname: "Mary", lname: "Smith", age: 23 }, // [1]
+                { id: 3, fname: "Peter", lname: "Smith", age: 29 } // [2]
+            ];
 
             // Create a string variable
-            
+            var table_row = "";
 
             // Loop through the array of objects
-            
+            for (var i = 0; i < people.length; i++) {
+                table_row += "<tr>";
+                table_row += "<td>" + people[i].id + "</td>";
+                table_row += "<td>" + people[i].fname + "</td>";
+                table_row += "<td>" + people[i].lname + "</td>";
+                table_row += "<td>" + people[i].age + "</td>";
+                table_row += "</tr>";
+            }
+
             // Update table
-            document.getElementById("products1").innerHTML = ; // load to table
-
-
-
-        };
+            // load to table line 56
+            document.getElementById("people_table").innerHTML =
+                table_row;
+        }
 
     </script>
 
@@ -36,13 +52,17 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Image</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
             </tr>
         </thead>
-        <tbody id="products1"></tbody>
+        <tbody id="people_table"></tbody>
     </table>
+
+    <script>
+        
+    </script>
 
 </body>
 

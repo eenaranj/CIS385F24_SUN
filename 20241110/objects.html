@@ -1,0 +1,178 @@
+<!-- 
+CIS385 Web Programming I 
+Thusday October 27th 2024 
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Objects</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ 
+     <script>
+         window.onload = function () {
+             // Case 1: Array of Objects
+             // a. Create an array of objects
+             let people = [
+                 { id: 1, name: "John", age: 25 },
+                 { id: 2, name: "Mary", age: 22 },
+                 { id: 3, name: "Charles", age: 29 }
+             ];
+ 
+             // b. Loop through the array
+             var list_item = "";
+             for (var i = 0; i < people.length; i++) {
+                 list_item += "<li>(" + people[i].id + ") " +
+                     people[i].name + " - " +
+                     people[i].age + " years-old</li>";
+             }
+ 
+             // c. Load data into an unordered list
+             document.getElementById("case1").innerHTML = list_item;
+ 
+             // Case 2: Array of Objects with nested array
+             // a. Create an array of objects
+             people = [
+                 { id: 1, name: "John", age: 25, friends: ["Mary", "Charles", "Ann"] },
+                 { id: 2, name: "Mary", age: 22, friends: ["John", "Ann"] },
+                 { id: 3, name: "Charles", age: 29, friends: ["Mary", "John", "Ann"] }
+             ];
+ 
+             // b. Loop through the array
+             list_item = "";
+             for (var i = 0; i < people.length; i++) {
+                 list_item += "<li>(" + people[i].id + ") " +
+                     people[i].name + " - " +
+                     people[i].age + " years-old - friends:";
+                 list_item += "<ul>"; // nested ul start
+                 for (var a = 0; a < people[i].friends.length; a++) {
+                     list_item += "<li>" + people[i].friends[a] + "</li>";
+                 }
+                 list_item += "</ul>"; // nested ul ends
+                 list_item += "</li>";
+             }
+ 
+             // c. Load data into a nested unordered list
+             document.getElementById("case2").innerHTML = list_item;
+ 
+             // Case 3: Array of Objects with nested objets
+             // a. Create an array of objects
+             people = [
+                 { id: 1, name: "John", age: 25, friends: [
+                     { fname: "Mary", phone: "212-555-1234" }, 
+                     { fname: "Charles", phone: "212-444-1224" }] },
+                 { id: 2, name: "Mary", age: 22, friends: [
+                     { fname: "John", phone: "212-555-5555" }, 
+                     { fname: "Charles", phone: "212-444-1224" }] },
+                 { id: 3, name: "Charles", age: 29, friends: [
+                     { fname: "Mary", phone: "212-555-1234" }, 
+                     { fname: "John", phone: "212-555-5555" },
+                     { fname: "Eddie", phone: "917-555-9999" }] }
+             ];
+ 
+             // b. Loop through the array
+             list_item = "";
+             for (var i = 0; i < people.length; i++) {
+                 list_item += "<li>(" + people[i].id + ") " +
+                     people[i].name + " - " +
+                     people[i].age + " years-old - friends: ";
+                 list_item += "<ul>"; // nested ul start
+                 for (var a = 0; a < people[i].friends.length; a++) {
+                     list_item += "<li>" + people[i].friends[a].fname + " - Phone: " + 
+                         people[i].friends[a].phone + "</li>";
+                 }
+                 list_item += "</ul>"; // nested ul ends
+                 list_item += "</li>";
+             }
+ 
+             // c. Load data into a nested unordered list
+             document.getElementById("case3").innerHTML = list_item;
+ 
+             // Execute everything once page has loaded.
+
+             
+
+
+
+         };
+ 
+     </script>
+ 
+ 
+ </head>
+ 
+ <body>
+ 
+     <h3>Case 1: Array of Objects</h3>
+     <!-- Unordered List -->
+     <!-- <li>(1) John - 20 years-old</li> -->
+     <ul id="case1"></ul>
+ 
+     <h3>Case 2: Array of Objects with nested array</h3>
+     <!-- Unordered List with nested Unordered List -->
+     <!-- <li>(1) John - 20 years-old
+             <ul>
+                 <li>John</li>
+                 <li>...</li>
+             </ul>
+          </li> -->
+     <ul id="case2"></ul>
+ 
+     <h3>Case 3: Array of Objects with nested objets</h3>
+     <!-- Unordered List with nested Unordered List -->
+     <!-- <li>(1) John - 20 years-old
+             <ul>
+                 <li>Friend name phone</li>
+                 <li>John 212-555-2555</li>
+             </ul>
+          </li> -->
+     <ul id="case3"></ul>
+
+     <h3>Load people into a table</h3>
+
+     <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="ppl2"></tbody>
+     </table>
+
+     <script>
+        var people2 = [
+                 { id: 1, name: "John", age: 25 },
+                 { id: 2, name: "Mary", age: 22 },
+                 { id: 3, name: "Charles", age: 29 }
+             ];
+
+        var tbl_row = "";
+        
+        for (let i = 0; i < people2.length; i++) {
+            
+            // tbl_row += "<tr>";
+            // tbl_row += "<td>" + people2[i].id + "</td>";
+            // tbl_row += "<td>" + people2[i].name + "</td>";
+            // tbl_row += "<td>" + people2[i].age + "</td>";
+            // tbl_row += "</tr>";
+
+                tbl_row += `<tr>
+                    <td>${people2[i].id}</td>
+                    <td>${people2[i].name}</td>
+                    <td>${people2[i].age}</td>    
+                </tr>`;
+
+        }
+
+        document.getElementById("ppl2").innerHTML = tbl_row;
+        
+     </script>
+ 
+ 
+ </body>
+ 
+ </html>

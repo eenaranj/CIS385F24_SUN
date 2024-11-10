@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="products">
+        <h3>My Products</h3>
+        <div>Products will load here</div>
+    </div>
+
+    <script>
+        var products = [
+            { id: 1, prod_title: "Product 1", desc: "Description for Product 1 ", price: 100, image: "balloons.jpg" },
+            { id: 2, prod_title: "Product 2", desc: "Description for Product 2 ", price: 200, image: "balloons.jpg" },
+            { id: 3, prod_title: "Product 3", desc: "Description for Product 3 ", price: 300, image: "balloons.jpg" },
+            { id: 4, prod_title: "Product 4", desc: "Description for Product 4 ", price: 100, image: "balloons.jpg" },
+            { id: 5, prod_title: "Product 5", desc: "Description for Product 5 ", price: 200, image: "balloons.jpg" },
+            { id: 6, prod_title: "Product 6", desc: "Description for Product 6 ", price: 300, image: "balloons.jpg" },
+            { id: 7, prod_title: "Product 7", desc: "Description for Product 7 ", price: 100, image: "balloons.jpg" },
+            { id: 8, prod_title: "Product 8", desc: "Description for Product 8 ", price: 200, image: "balloons.jpg" },
+            { id: 9, prod_title: "Product 9", desc: "Description for Product 9 ", price: 300, image: "balloons.jpg" },
+            { id: 10, prod_title: "Product 10", desc: "Description for Product 10 ", price: 100, image: "balloons.jpg" },
+            { id: 11, prod_title: "Product 11", desc: "Description for Product 11 ", price: 200, image: "balloons.jpg" },
+            { id: 12, prod_title: "Product 12", desc: "Description for Product 12 ", price: 300, image: "balloons.jpg" },
+            { id: 13, prod_title: "Product 13", desc: "Description for Product 13 ", price: 300, image: "balloons2.jpg" }
+
+        ];
+
+
+        var prod = "";
+
+        for (let i = 0; i < products.length; i++) {
+            prod += `<div class='col-md-4'><div class="panel panel-primary">
+                <div class="panel-heading">${products[i].prod_title}</div>
+                <div class="panel-body"><p>${products[i].desc}</p>
+                <p>Price $${products[i].price}</p>
+                <p><img src="images/${products[i].image}" alt="${products[i].prod_title}"></p>
+                <p><input type="button" name="addToCart" id="addToCart" value="Add to Cart" class="btn btn-primary"></p>    
+                </div>
+            </div></div>`; 
+        }
+
+        document.getElementById("products").innerHTML = prod;
+
+    </script>
+    
+</body>
+</html>
